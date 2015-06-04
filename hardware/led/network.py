@@ -25,11 +25,11 @@ def first_connect():
 def get_actions():
     if MY_ID == '':
         return None
-    tasks = json.load(urllib2.urlopen("https://ahome.azure-mobile.net/tables/task?$filter=(id%20eq%20'"+MY_ID+"')"))
+    tasks = json.load(urllib2.urlopen("https://ahome.azure-mobile.net/tables/task"))
     task_list = list()
     for item in tasks:
-        if item['id'] == MY_ID:
-            task_list.append(json.loads(item['action']))
+        if item['dev_id'] == MY_ID:
+            task_list.append(item)
     return task_list
 
 
@@ -46,4 +46,5 @@ def test_action():
 if MY_ID == "":
     MY_ID = read_json_from_file()['id']
 
-print(test_action())
+first_connect()
+print(get_actions())
