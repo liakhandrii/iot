@@ -19,6 +19,21 @@ $(document).ready(function(){
                 "</form>";
             }
 
+            if (element["params"] != undefined){
+                var options = "";
+
+                element["params"].forEach(function(param){
+                   options += "\n<option>" + param + "</option>";
+                });
+
+                rightColumn = "<form method=\"post\" action=\"/doTask\">"+
+                "<input type=\"hidden\" name=\"id\" value=\"" + get("id") + "\">"+
+                "<select name=\"param\">" + options + "\n</select>" +
+                "<input type=\"hidden\" name=\"action\" value=\"" + element["name"] + "\">"+
+                "<button type=\"submit\" class=\"btn\">DO IT!</button>"+
+                "</form>";
+            }
+
             $(".opttable").append("<tr>"+
             "<td>" + element["label"] + "</td>"+
                 "<td class=\"tdoptleft\">"+
