@@ -6,11 +6,32 @@ $(document).ready(function(){
     var requestAddress = "https://ahome.azure-mobile.net/tables/devices?$filter=(id%20eq%20'" + get("id") + "')";
     $.get( requestAddress, function( data ) {
 
+        JSON.parse(data[0]["info"]).forEach(function(element){
+
+            var rightColumn = "";
+
+            $.get("https://ahome.azure-mobile.net/tables/info?$filter=(dev_id%20eq%20'" + get("id") + "')", function( data ) {
+                rightColumn = data[data.length - 3]["param"];
+                if (element["label"] != undefined){
+                    $(".opttable").append("<tr>"+
+                    "<td>" + element["label"] + "</td>"+
+                    "<td class=\"tdoptleft\">"+
+                    rightColumn+
+                    "</td>"+
+                    "</tr>");
+                }
+            });
+
+
+
+        });
+
+
         JSON.parse(data[0]["actions"]).forEach(function(element){
 
             var rightColumn = "";
 
-            if (element["params_type"] == undefined && element["toggle"] == undefined){
+            if (element["params_type"] == undefined){
                 rightColumn = "<form method=\"post\" action=\"/doTask\">"+
                 "<input type=\"hidden\" name=\"id\" value=\"" + get("id") + "\">"+
                 "<input type=\"hidden\" name=\"action\" value=\"" + element["name"] + "\">"+
