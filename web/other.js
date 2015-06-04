@@ -11,7 +11,7 @@ $(document).ready(function(){
             var rightColumn = "";
 
             if (element["params_type"] == undefined && element["toggle"] == undefined){
-                rightColumn = "<form method=\"get\" action=\"/doTask?id=\">"+
+                rightColumn = "<form method=\"post\" action=\"/doTask\">"+
                 "<input type=\"hidden\" name=\"id\" value=\"" + get("id") + "\">"+
                 "<input type=\"hidden\" name=\"action\" value=\"" + element["name"] + "\">"+
                 "<input type=\"hidden\" name=\"param\" value=\"" + "" + "\">"+
