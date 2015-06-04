@@ -28,7 +28,7 @@ def get_actions():
     tasks = json.load(urllib2.urlopen("https://ahome.azure-mobile.net/tables/task"))
     task_list = list()
     for item in tasks:
-        if item['id'] == MY_ID:
+        if item['dev_id'] == MY_ID:
             task_list.append(item)
     return task_list
 
@@ -44,4 +44,11 @@ def test_action():
     return task_list
 
 if MY_ID == "":
+<<<<<<< HEAD
     MY_ID = read_json_from_file()['id']
+=======
+    MY_ID = read_json_from_file()['id']
+
+first_connect()
+print(get_actions())
+>>>>>>> 3d0acf7f72fa789da0d528f366a0ee36694a26d8

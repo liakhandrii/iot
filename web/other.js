@@ -11,7 +11,25 @@ $(document).ready(function(){
             var rightColumn = "";
 
             if (element["params_type"] == undefined && element["toggle"] == undefined){
-                rightColumn = "<form method=\"get\" action=\"/doTask?id=" + get("id") + "&" + "action=" + element["name"] +"\">"+
+                rightColumn = "<form method=\"post\" action=\"/doTask\">"+
+                "<input type=\"hidden\" name=\"id\" value=\"" + get("id") + "\">"+
+                "<input type=\"hidden\" name=\"action\" value=\"" + element["name"] + "\">"+
+                "<input type=\"hidden\" name=\"param\" value=\"" + "" + "\">"+
+                "<button type=\"submit\" class=\"btn\">DO IT!</button>"+
+                "</form>";
+            }
+
+            if (element["params"] != undefined){
+                var options = "";
+
+                element["params"].forEach(function(param){
+                   options += "\n<option>" + param + "</option>";
+                });
+
+                rightColumn = "<form method=\"post\" action=\"/doTask\">"+
+                "<input type=\"hidden\" name=\"id\" value=\"" + get("id") + "\">"+
+                "<select name=\"param\">" + options + "\n</select>" +
+                "<input type=\"hidden\" name=\"action\" value=\"" + element["name"] + "\">"+
                 "<button type=\"submit\" class=\"btn\">DO IT!</button>"+
                 "</form>";
             }
