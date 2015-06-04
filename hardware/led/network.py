@@ -33,5 +33,5 @@ def get_actions():
 if MY_ID == "":
     MY_ID = read_json_from_file()['id']
 
-#first_connect()
+first_connect()
 print(get_actions())
