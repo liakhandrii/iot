@@ -11,7 +11,10 @@ $(document).ready(function(){
             var rightColumn = "";
 
             if (element["params_type"] == undefined && element["toggle"] == undefined){
-                rightColumn = "<form method=\"get\" action=\"/doTask?id=" + get("id") + "&" + "action=" + element["name"] +"\">"+
+                rightColumn = "<form method=\"get\" action=\"/doTask?id=\">"+
+                "<input type=\"hidden\" name=\"id\" value=\"" + get("id") + "\">"+
+                "<input type=\"hidden\" name=\"action\" value=\"" + element["name"] + "\">"+
+                "<input type=\"hidden\" name=\"param\" value=\"" + "" + "\">"+
                 "<button type=\"submit\" class=\"btn\">DO IT!</button>"+
                 "</form>";
             }
