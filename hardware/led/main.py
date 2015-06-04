@@ -29,7 +29,8 @@ if __name__ == "__main__":
 	while True:
 		time.sleep(check_timeout)
 		actions = network.get_actions()
-		infos = network.get_infos()
+		if not actions:
+			continue
 
 		for action in actions:
 			if action["name"] == "blink":
@@ -42,12 +43,11 @@ if __name__ == "__main__":
 				time.sleep(p)
 				led_status = True
 				pinOut.write(1)
-		for info in infos:
-			if infos["name"] == "get_light_info":
-				p = str(pinAdc.read())
+			elif action["name"] == "get_light_info":
+				p = str(pinAdc.read() / 1024.0)
 				json_dict = {"name" : "get_light_info", "param" : p}
 				network.send(json_dict)
-			if infos["name"] == "toggle_led_info":
+			elif action["name"] == "toggle_led_info":
 				p = str(led_status)
 				json_dict = {"name" : "toggle_led_info", "param" : p}
 				network.send(json_dict)

@@ -1,32 +1,6 @@
 {
-	id :"dfdgge3535345",
-	label : "Red LED",
-	actions : [
-		{
-			name : "blink",
-			label : "Blink SOS"
-		},
-		{
-			name : "toggle_led",
-			label : "Turn LED On/Off",
-			toogle : true
-		},
-		{
-			name : "turn_on_with_delay",
-			label : "Turn on LED for specified time",
-			params_type : "range",
-			param : [1, 100]
-		}
-	],
-	info : [
-		{
-			name : "get_light_info",
-			label : "Brightness",
-			response_type : "Integer"
-		},
-		{
-			name : "toggle_led_info",
-			response_type : "Boolean"
-		}
-	]
+	"id" :"HA3GHsd-das228",
+	"label" : "Red LED",
+	"actions" : "[{\"name\": \"blink\", \"label\": \"Blink SOS\"},{\"name\": \"toggle_led\", \"label\":\"Turn LED On/Off\",\"toggle\": \"true\"}, {\"name\" : \"turn_on_with_delay\", \"label\" : \"Turn on LED for specified time\", \"params_type\" : \"range\", \"param\" : [1, 100]}]",
+	"info" : "[{\"name\" : \"get_light_info\",\"label\" : \"Brightness\",\"response_type\" : \"Integer\"},{\"name\" : \"toggle_led_info\", \"response_type\" : \"Boolean\"}]"
 }
