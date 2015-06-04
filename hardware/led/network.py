@@ -33,6 +33,10 @@ def get_actions():
     return task_list
 
 
+def get_my_id():
+    return MY_ID
+
+
 def send(data):
     req = urllib2.Request('http://ahome.azure-mobile.net/tables/info')
     req.add_header('Content-Type', 'application/json')
