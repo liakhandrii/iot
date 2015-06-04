@@ -4,6 +4,7 @@ import java.awt.GridLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JPanel;
 import javax.swing.JButton;
@@ -28,8 +29,10 @@ public class Menu extends JFrame {
 	
 	public Menu() {
 		setResizable(false);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setTitle("Home manager");
 		setSize(276, 248);
+		setLocationRelativeTo(null);
 		getContentPane().setLayout(null);
 		
 		JLabel lblNameLabel = new JLabel("Name:");
@@ -68,7 +71,18 @@ public class Menu extends JFrame {
 				//System.out.print(textField_0.getText() +" "+ textField_1.getText() + " " + textField_2.getText() + " " + textField_3.getText() + " " + textField_4.getText());
 				String[] names = {"name", "server", "ssid", "passwifi", "homename", "passhome"};
 				String[] values = {textField_0.getText(), txtDefault.getText(), textField_2.getText(), textField_3.getText(), textField_4.getText(),  textField_5.getText()};
-				InitialSettings.writeJson(InitialSettings.makeJson(names, values),comboBox.getSelectedItem().toString());
+				for (int i =0; i < values.length; i++) {
+					if (values[i].length()==0) {
+						JOptionPane.showMessageDialog(null, "Fill all fields");
+						return;
+					}
+				}
+				if (InitialSettings.writeJson(InitialSettings.makeJson(names, values),comboBox.getSelectedItem().toString())) {
+					JOptionPane.showMessageDialog(null, "Settings was saved");
+				} else {
+					JOptionPane.showMessageDialog(null, "An error occured");
+				}
+				
 			}
 		});
 		btnOk.setBounds(87, 189, 89, 23);
