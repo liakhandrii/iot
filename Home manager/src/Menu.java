@@ -140,7 +140,7 @@ public class Menu extends JFrame {
             boolean canRead = f[i].canRead();
             boolean canWrite = f[i].canWrite();
             
-            if (canRead && canWrite && !isFloppy && isDrive && (type.toLowerCase().contains("removable") || type.toLowerCase().contains("rimovibile")))
+            //if (canRead && canWrite && !isFloppy && isDrive && (type.toLowerCase().contains("removable") || type.toLowerCase().contains("rimovibile")))
             {
                 System.out.println("Detected PEN Drive: " + drive + " - "+ displayName); 
                 driveLetter = drive;
