@@ -5,13 +5,12 @@ MY_ID = ""
 
 
 def read_json_from_file():
-    with open('base_config.json') as data_file:
+    with open('led_config.json') as data_file:
         return json.load(data_file)
 
 
 def first_connect():
-    with open('base_config.json') as data_file:
-        data = json.load(data_file)
+    data = read_json_from_file()
 
     MY_ID = data['id']
 
