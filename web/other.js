@@ -19,10 +19,10 @@ $(document).ready(function(){
                 "</form>";
             }
 
-            if (element["params"] != undefined){
+            if (element["param"] != undefined){
                 var options = "";
 
-                element["params"].forEach(function(param){
+                element["param"].forEach(function(param){
                    options += "\n<option>" + param + "</option>";
                 });
 

@@ -91,8 +91,8 @@
 }
 
 .tdoptleft {
-	text-align: left;
-	text-indent: 630px;
+	text-align: right;
+	padding-right: 30px;
 }
 
 
