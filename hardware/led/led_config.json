@@ -15,7 +15,7 @@
 			name : "turn_on_with_delay",
 			label : "Turn on LED for specified time",
 			params_type : "range",
-			params : [1, 100]
+			param : [1, 100]
 		}
 	],
 	info : [
