@@ -29,7 +29,7 @@ def get_actions():
     task_list = list()
     for item in tasks:
         if item['id'] == MY_ID:
-            task_list.append(item)
+            task_list.append(json.loads(item['action']))
     return task_list
 
 
@@ -39,7 +39,7 @@ def test_action():
     task_list = list()
     for item in data:
         if item['id'] == MY_ID:
-            task_list.append(item)
+            task_list.append(json.loads(item['action']))
 
     return task_list
 
