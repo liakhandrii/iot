@@ -44,11 +44,7 @@ def test_action():
     return task_list
 
 if MY_ID == "":
-<<<<<<< HEAD
-    MY_ID = read_json_from_file()['id']
-=======
     MY_ID = read_json_from_file()['id']
 
 first_connect()
 print(get_actions())
->>>>>>> 3d0acf7f72fa789da0d528f366a0ee36694a26d8
