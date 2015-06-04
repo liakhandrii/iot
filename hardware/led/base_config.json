@@ -1,0 +1,6 @@
+{
+	"id": "HA3GHsd-das228",
+	"label": "cooker",
+	"actions": "[{'name': 'RING', 'label': 'Play ring sound', 'params_type': 'range', 'params': [10, 100]}, {'name': 'RING', 'label': 'Play ring sound', 'params_type': 'range', 'params': [10, 100]}}]",
+	"info": "[{'name' : 'get_light_info','label' : 'Brightness','response_type' : 'Integer'},{'name' : 'toggle_led_info','response_type' : 'Boolean'}]"
+}

@@ -1,0 +1,4 @@
+{
+	"id": "HA3GHsd-das228",
+	"actions_list": "[{'name': 'blink'}, {'name': 'toggle_led'}, {'name': 'turn_on_with_delay', 'param' : 50}, {'name' : 'get_light_info'}]"
+}
