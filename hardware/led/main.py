@@ -24,11 +24,13 @@ if __name__ == "__main__":
 	check_timeout = 2
 	pinOut = mraa.Gpio(13)
 	pinOut.dir(mraa.DIR_OUT)
+	pinAdc = mraa.Aio(5)
 
 	while True:
 		time.sleep(check_timeout)
 		actions = network.get_actions()
 		infos = network.get_infos()
+
 		for action in actions:
 			if action["name"] == "blink":
 				blink_SOS(pinOut)
@@ -42,5 +44,11 @@ if __name__ == "__main__":
 				pinOut.write(1)
 		for info in infos:
 			if infos["name"] == "get_light_info":
-				p = {""}
+				p = str(pinAdc.read())
+				json_dict = {"name" : "get_light_info", "param" : p}
+				network.send(json_dict)
+			if infos["name"] == "toggle_led_info":
+				p = str(led_status)
+				json_dict = {"name" : "toggle_led_info", "param" : p}
+				network.send(json_dict)
 
