@@ -1,14 +1,14 @@
 [
   {
 	"id": "HA3GHsd-das228",
-	"actions": "{'name': 'blink'}"
+	"action": "{\"name\": \"blink\"}"
   },
   {
     "id": "HA3GHsd-das228",
-    "actions": "{'name': 'turn_on_with_delay', 'param' : 50}"
+    "action": "{\"name\": \"turn_on_with_delay\", \"param\" : \"50\"}"
   },
   {
     "id" : "bsrt",
-    "action" : "{'name' : 'get_light_info'}"
+    "action" : "{\"name\" : \"get_light_info\"}"
   }
 ]
