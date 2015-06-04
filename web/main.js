@@ -8,6 +8,7 @@ $(document).ready(function(){
         var i = 1;
         data.forEach(function(element){
             var divClass = "firstItem";
+
             if (i == 2) {
                 divClass = "secondItem";
             }
@@ -19,11 +20,16 @@ $(document).ready(function(){
                 i = 0;
             }
 
-            var itemHtml = "<div class=\"item " + divClass + "\" style=\"top: " + top + ";\">" + element["label"] + "</div>";
+            var itemHtml = "<div id=\"" + element["id"] + "\" class=\"item " + divClass + "\" style=\"top: " + top + ";\">" + element["label"] + "</div>";
 
             $('#items').append(itemHtml);
+
+            $('#' + element["id"]).click( function (){
+                window.location.href = "other.html?id=" + encodeURIComponent(element["id"]);
+            });
 
             i++;
         });
     });
+
 });

@@ -43,7 +43,6 @@
 }
 
 .item:hover{
-
     cursor: pointer;
     box-shadow: 0px 0px 8px #7777FF;
 }
