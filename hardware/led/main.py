@@ -27,14 +27,22 @@ if __name__ == "__main__":
 	pinOut.dir(mraa.DIR_OUT)
 	pinAdc = mraa.Aio(0)
 
+
+	performed_tasks = []
+
+
+	dev_id = network.get_my_id()
+
+
 	while True:
 		time.sleep(check_timeout)
 		actions = network.get_actions()
-		print actions
 		if not actions:
 			continue
 
 		for action in actions:
+			if action["id"] in performed_tasks:
+				continue
 			if action["action"] == "blink":
 				blink_SOS(pinOut)
 			elif action["action"] == "toggle_led":
@@ -45,12 +53,11 @@ if __name__ == "__main__":
 				time.sleep(p)
 				led_status = True
 				pinOut.write(1)
-			elif action["action"] == "get_light_info":
-				p = str(pinAdc.read() / 1024.0)
-				json_dict = {"action" : "get_light_info", "param" : p}
-				network.send(json_dict)
-			elif action["action"] == "toggle_led_info":
-				p = str(led_status)
-				json_dict = {"action" : "toggle_led_info", "param" : p}
-				network.send(json_dict)
+		p = str(pinAdc.read() / 1024.0)
+		json_dict = {"dev_id" : dev_id, "name" : "get_light_info", "param" : p}
+		network.send(json_dict)
+		p = str(led_status)
+		json_dict = {"dev_id" : dev_id, "name" : "toggle_led_info", "param" : p}
+		network.send(json_dict)
+		performed_tasks.append(action["id"])
 

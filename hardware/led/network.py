@@ -33,6 +33,18 @@ def get_actions():
     return task_list
 
 
+def get_my_id():
+    return MY_ID
+
+
+def send(data):
+    req = urllib2.Request('http://ahome.azure-mobile.net/tables/info')
+    req.add_header('Content-Type', 'application/json')
+    try:
+        response = urllib2.urlopen(req, json.dumps(data))
+    except Exception as e:
+        e = 1
+
 def test_action():
     with open('task.sample.json') as data_file:
         data = json.load(data_file)
